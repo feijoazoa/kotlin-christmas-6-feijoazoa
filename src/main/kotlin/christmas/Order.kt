@@ -1,20 +1,21 @@
 package christmas
 
-class Order (val date: Int, val menu: List<Menu>){
-
-    private val menus = mutableListOf<Menu>()
-
-    fun addMenu(menu: Menu): {
-        menus.add(menu)
-        return menus
+class Order(private val date: Int, private val menuItems: List<Pair<MenuItem, Int>>) {
+    private var totalPrice: Int = 0
+    init {
+        calculateTotalAmount()
     }
 
-    fun calculateOriginTotalPrice(menu: Menu) {
-        val originTotalPrice = 0
-        for ( item in menus) {
-            total += item.price * item.quantity
-        }
-        return price
+    private fun calculateTotalAmount() {
+        totalPrice = menuItems.sumOf { it.first.price * it.second }
+    }
+
+    fun getTotalAmount(): Int {
+        return totalPrice
+    }
+
+    fun getMenuNames(): List<String> {
+        return menuItems.map { it.first.name }
     }
 
 }

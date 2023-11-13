@@ -35,6 +35,7 @@ class InputView {
         require(validDate in 1..31) { INVALID_DATE_INPUT_ERROR }
     }
 
+
     companion object {
         private const val EMPTY_INPUT_ERROR = "[ERROR] 값을 입력해 주세요."
         private const val NON_NUMERIC_INPUT_ERROR = "[ERROR] 숫자만 입력해 주세요."
