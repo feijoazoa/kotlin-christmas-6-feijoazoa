@@ -17,11 +17,22 @@ class InputView {
         }
     }
 
+    fun getOrder(menu: Menu): String {
+        while (true) {
+            println("주문할 메뉴와 개수를 입력해주세요 (e.g. 해산물파스타-2,레드와인-1,초코케이크-1): ")
+            val order = Console.readLine()?.trim()
+            if (order != null && menu.isValidMenuOrder(order)) {
+                return order
+            } else {
+                println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
+            }
+        }
+    }
     private fun validateDateInput(inputDate: String) {
         require(inputDate.isNotBlank()) { EMPTY_INPUT_ERROR }
         require(inputDate.toIntOrNull() != null) { NON_NUMERIC_INPUT_ERROR }
-        val date = inputDate.toInt()
-        require(date in 1..31) { INVALID_DATE_INPUT_ERROR }
+        val validDate = inputDate.toInt()
+        require(validDate in 1..31) { INVALID_DATE_INPUT_ERROR }
     }
 
     companion object {
