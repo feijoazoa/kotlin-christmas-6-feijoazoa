@@ -19,7 +19,7 @@ class InputView {
 
     fun getOrder(menu: Menu): String {
         while (true) {
-            println("주문할 메뉴와 개수를 입력해주세요 (e.g. 해산물파스타-2,레드와인-1,초코케이크-1): ")
+            println("주문할 메뉴와 개수를 입력해주세요 (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)")
             val order = Console.readLine()?.trim()
             if (order != null && menu.isValidMenuOrder(order)) {
                 return order
@@ -36,7 +36,8 @@ class InputView {
     }
 
 
-    companion object {
+    companion object
+    {
         private const val EMPTY_INPUT_ERROR = "[ERROR] 값을 입력해 주세요."
         private const val NON_NUMERIC_INPUT_ERROR = "[ERROR] 숫자만 입력해 주세요."
         private const val INVALID_DATE_INPUT_ERROR = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."
