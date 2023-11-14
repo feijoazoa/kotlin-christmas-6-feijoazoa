@@ -37,8 +37,14 @@ class Event(private val order: Order) {
             benefits.add("주말 할인: -$discountAmount")
             totalDiscount += discountAmount
         }
+        // 특별 할인
+        if (dayOfMonth in listOf(3, 10, 17, 24, 25, 31)) {
+            val discountAmount = 1000
+            benefits.add("특별 할인: -$discountAmount")
+            totalDiscount += discountAmount
+        }
 
-        
+        val totalAmountAfterDiscount = order.getTotalAmount() - totalDiscount
 
         return EventResult(benefits, gifts, totalDiscount, totalAmountAfterDiscount)
     }
