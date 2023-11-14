@@ -2,7 +2,7 @@ package christmas
 
 import java.time.LocalDate
 
-class Event(private val order: Order) {
+class Event(private val order: Order, private val date: LocalDate) {
     private val discount = Discount(order)
 
     fun applyEvents(): EventResult {
@@ -14,7 +14,6 @@ class Event(private val order: Order) {
         val gifts = mutableListOf<String>()
         var totalDiscount = 0
 
-        val date = LocalDate.ofEpochDay(order.date.toLong())
         val dayOfWeek = date.dayOfWeek.name
         val dayOfMonth = date.dayOfMonth
 
@@ -26,7 +25,7 @@ class Event(private val order: Order) {
         }
 
         //평일 할인 이벤트
-        if (dayOfWeek in listOf("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY")) {
+        if (dayOfWeek in listOf("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY")) {
             val discountAmount = discount.weekdayDiscount()
             benefits.add("평일 할인: -$discountAmount")
             totalDiscount += discountAmount
