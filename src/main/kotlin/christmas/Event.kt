@@ -44,6 +44,11 @@ class Event(private val order: Order) {
             totalDiscount += discountAmount
         }
 
+        // 증정 이벤트
+        if (order.getTotalAmount() >= 120000) {
+            totalDiscount += 25000
+        }
+
         val totalAmountAfterDiscount = order.getTotalAmount() - totalDiscount
 
         return EventResult(benefits, gifts, totalDiscount, totalAmountAfterDiscount)
