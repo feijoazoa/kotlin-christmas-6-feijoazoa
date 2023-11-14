@@ -39,4 +39,7 @@ class Menu {
     fun getDrinks(): Map<String, Int> {
         return drinks
     }
+    fun getPrice(name: String): Int {
+        return menu[name] ?: 0
+    }
 }
