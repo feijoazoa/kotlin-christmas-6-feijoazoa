@@ -31,6 +31,13 @@ class Event(private val order: Order) {
             benefits.add("평일 할인: -$discountAmount")
             totalDiscount += discountAmount
         }
+        //주말 할인 이벤트
+        if (dayOfWeek in listOf("FRIDAY", "SATURDAY")) {
+            val discountAmount = discount.weekendDiscount()
+            benefits.add("주말 할인: -$discountAmount")
+            totalDiscount += discountAmount
+        }
+
         
 
         return EventResult(benefits, gifts, totalDiscount, totalAmountAfterDiscount)

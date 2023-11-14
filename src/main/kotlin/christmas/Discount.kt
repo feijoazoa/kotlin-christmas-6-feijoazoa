@@ -7,7 +7,9 @@ class Discount(private val order: Order) {
     fun weekdayDiscount(): Int {
         return order.getMenuNames(MenuCategory.DESSERT) * 2023
     }
-
+    fun weekendDiscount(): Int {
+        return order.getMenuNames(MenuCategory.MAIN) * 2023
+    }
 
 }
 
