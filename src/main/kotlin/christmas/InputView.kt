@@ -30,7 +30,7 @@ class InputView {
     }
     private fun validateDateInput(inputDate: String) {
         require(inputDate.isNotBlank()) { EMPTY_INPUT_ERROR }
-        require(inputDate.toIntOrNull() != null) { NON_NUMERIC_INPUT_ERROR }
+        require(inputDate.toIntOrNull() != null) { INVALID_DATE_INPUT_ERROR }
         val validDate = inputDate.toInt()
         require(validDate in 1..31) { INVALID_DATE_INPUT_ERROR }
     }
@@ -39,7 +39,6 @@ class InputView {
     companion object
     {
         private const val EMPTY_INPUT_ERROR = "[ERROR] 값을 입력해 주세요."
-        private const val NON_NUMERIC_INPUT_ERROR = "[ERROR] 숫자만 입력해 주세요."
         private const val INVALID_DATE_INPUT_ERROR = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."
     }
 }
