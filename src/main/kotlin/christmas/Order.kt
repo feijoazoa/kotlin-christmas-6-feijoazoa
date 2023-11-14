@@ -1,6 +1,6 @@
 package christmas
 
-class Order(private val date: Int, private val menuItems: List<Pair<MenuItem, Int>>) {
+class Order(val date: Int, private val menuItems: List<Pair<MenuItem, Int>>) {
     private var totalPrice: Int = 0
     init {
         calculateTotalAmount()
