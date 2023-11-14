@@ -1,7 +1,7 @@
 package christmas
 
 class Order(private val menu: Menu, order: String) {
-    private val orderedItems: Map<String, Int>
+    val orderedItems: Map<String, Int>
 
     init {
         val items = mutableMapOf<String, Int>()
