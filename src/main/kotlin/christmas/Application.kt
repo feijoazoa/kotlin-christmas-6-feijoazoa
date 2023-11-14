@@ -1,8 +1,8 @@
 package christmas
 
 import java.time.LocalDate
-fun main() {
 
+fun main() {
     val inputView = InputView()
     val outputView = OutputView()
 
@@ -19,5 +19,4 @@ fun main() {
 
     outputView.printOrderResult(order, eventResult, badge, inputDate)
     return
-
 }
