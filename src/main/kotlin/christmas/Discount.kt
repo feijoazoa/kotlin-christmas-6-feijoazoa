@@ -4,8 +4,9 @@ class Discount(private val order: Order) {
     fun christmasDdayDiscount(dayOfMonth: Int): Int {
         return 1000 + (dayOfMonth - 1) * 100
     }
-
-
+    fun weekdayDiscount(): Int {
+        return order.getMenuNames(MenuCategory.DESSERT) * 2023
+    }
 
 
 }
