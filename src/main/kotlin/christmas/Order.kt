@@ -21,4 +21,15 @@ class Order(private val menu: Menu, order: String) {
     fun getMenuNames(): List<String> {
         return orderedItems.keys.toList()
     }
+
+    fun getDessertCount(): Int {
+        return orderedItems.entries.sumOf { (menuName, quantity) ->
+            if (menu.getDesserts().containsKey(menuName)) quantity else 0
+        }
+    }
+    fun getMainCount(): Int {
+        return orderedItems.entries.sumOf { (menuName, quantity) ->
+            if (menu.getMains().containsKey(menuName)) quantity else 0
+        }
+    }
 }
