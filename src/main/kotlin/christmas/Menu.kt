@@ -24,10 +24,6 @@ class Menu {
         }
         return true
     }
-    fun getAppetizers(): Map<String, Int> {
-        return appetizers
-    }
-
     fun getMains(): Map<String, Int> {
         return mains
     }
@@ -36,9 +32,6 @@ class Menu {
         return desserts
     }
 
-    fun getDrinks(): Map<String, Int> {
-        return drinks
-    }
     fun getPrice(name: String): Int {
         return menu[name] ?: 0
     }
