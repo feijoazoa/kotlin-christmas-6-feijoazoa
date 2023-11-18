@@ -13,6 +13,7 @@ class ApplicationTest : NsTest() {
             run("3", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1")
             assertThat(output()).contains(
                 "<주문 메뉴>",
+
                 "<할인 전 총주문 금액>",
                 "<증정 메뉴>",
                 "<혜택 내역>",
